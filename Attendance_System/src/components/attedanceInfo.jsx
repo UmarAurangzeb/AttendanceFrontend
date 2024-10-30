@@ -5,12 +5,14 @@ import '../Styles/introStyles.css';
 import {  Button,  Overlay, Tooltip } from 'react-bootstrap';
 import myImg from '../img/dd.png';
 import DeveloperDay from "./toolTip";
+import { useNavigate } from "react-router-dom";
 
 function AttendanceForm() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [submission,setSubmission] = useState(false)
   const [formData, setFormData] = useState([]);
   const [inputCode, setInputCode] = useState('');
+  const navigate = useNavigate()
   const target = useRef(null);
 
   async function useFetch() {
@@ -33,7 +35,8 @@ function AttendanceForm() {
     })
     setFormData(array)
     console.log(formData);
-    await updateGroupData(formData)    
+    await updateGroupData(formData)
+    navigate("/success")   
   }
 
   return (

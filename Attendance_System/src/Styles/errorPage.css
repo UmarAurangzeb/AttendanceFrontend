@@ -1,0 +1,38 @@
+.h404 {
+  font-size: 4vw;
+  color: #172b4d;
+  transition: all 0.25s;
+  width: 50%;
+  margin: auto;
+}
+
+.h404:hover {
+  color: #00a0bf;
+}
+
+.lead {
+  color: #172b4d;
+  font-weight: 10;
+}
+
+.MyContainer {
+  width: 25vw;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  height: 35vh;
+  position: relative;
+}
+
+.MyBox {
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+@media screen and (max-width:600px) {
+  .h404 {
+    font-size: 6vw;
+  }
+}
