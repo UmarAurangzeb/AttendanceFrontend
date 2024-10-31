@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { getGroupData,updateGroupData } from "../api/api";
-import { QuestionCircle } from 'react-bootstrap-icons';
-import '../Styles/introStyles.css';
-import {  Button,  Overlay, Tooltip } from 'react-bootstrap';
+// import '../Styles/introStyles.css';
+import '../Styles/attendance.css'
 import myImg from '../img/dd.png';
 import DeveloperDay from "./toolTip";
 import { useNavigate } from "react-router-dom";
@@ -49,8 +48,8 @@ function AttendanceForm() {
       <div className="container">
         <div className="box">
           <div className="haha">
-            <img src={myImg} style={{ width: '20vw' }} alt="Logo" />
-            <div className="heading h3 mt-3" style={{ fontFamily: 'Tahoma',fontSize:'2vw',margin:'1vw' }}>Mark Attendance</div>
+            <img src={myImg} className="image" alt="Logo" />
+            <div className="heading">Mark Attendance</div>
           </div>
           <form id="attendanceform" onSubmit={handleSubmit} method="post">
             <input

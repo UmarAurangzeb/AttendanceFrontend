@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+}
+
+.heading {
+  font-size: 2rem;
+}
+
+.submit-button {
+  width: 80%;
+  background-color: #00a0bf;
+  color: white;
+  height: 2.1rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  border: none;
+  border-radius: 15px;
+}
+
+.submit-button:hover {
+  background-color: #003048;
+}
+
+input {
+  width: 70%;
+  padding: 0.25rem;
+}
+
+@media only screen and (max-width:600px) {
+  .heading {
+    font-size: 1.3rem;
+  }
+}
