@@ -13,12 +13,10 @@ function AttendanceForm() {
   const [formData, setFormData] = useState([]);
   const [inputCode, setInputCode] = useState('');
   const navigate = useNavigate()
-  const target = useRef(null);
 
   async function useFetch() {
     const response = await getGroupData();
     setFormData(response)
-
   }
 
   useEffect(() => {
@@ -26,17 +24,23 @@ function AttendanceForm() {
   }, [submission]);
 
   async function handleSubmit(event) {
+    let markAttendance = false;
     event.preventDefault();
     setSubmission(!submission)
     const array = formData.forEach((item)=>{
       if(item.attendance_code===inputCode){
         item.attendance = true
+        markAttendance=true
       }
     })
     setFormData(array)
     console.log(formData);
-    await updateGroupData(formData)
-    navigate("/success")   
+    if(markAttendance){
+      await updateGroupData(formData)
+      navigate("/success")
+    }else{
+      alert('Invalid Code')
+    }
   }
 
   return (

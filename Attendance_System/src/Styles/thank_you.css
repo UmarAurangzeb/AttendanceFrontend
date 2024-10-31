@@ -1,0 +1,17 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  width: 35rem;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0px 10px 20px var(--shadow-dark), 0px 6px 10px var(--shadow-light);
+  margin: 0 auto;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 2;
+  height: 30vh;
+
+}
