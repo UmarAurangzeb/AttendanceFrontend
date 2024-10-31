@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  padding: 0 !important;
 }
 
 .heading {
@@ -7,7 +8,7 @@
 }
 
 .submit-button {
-  width: 80%;
+  width: 70%;
   background-color: #00a0bf;
   color: white;
   height: 2.1rem;
@@ -15,6 +16,7 @@
   transition: background-color 0.3s ease;
   border: none;
   border-radius: 15px;
+  margin-bottom: 15px;
 }
 
 .submit-button:hover {
@@ -22,7 +24,7 @@
 }
 
 input {
-  width: 70%;
+  width: 65%;
   padding: 0.25rem;
 }
 
