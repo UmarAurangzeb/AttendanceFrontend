@@ -1,25 +1,25 @@
-.h404 {
-  font-size: 4vw;
-  color: #172b4d;
-  transition: all 0.25s;
-  width: 50%;
-  margin: auto;
+.h404:hover {
+  color: rgb(62, 45, 3);
+  transition: 0.2s all ease;
 }
 
-.h404:hover {
-  color: #00a0bf;
+.h404 {
+  transition: 0.2s all ease;
+  font-size: 4rem;
+  color: rgb(171, 126, 12);
 }
 
 .lead {
-  color: #172b4d;
+  color: rgb(171, 126, 12);
   font-weight: 10;
 }
 
 .MyContainer {
   width: 25vw;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   height: 35vh;
   position: relative;
 }

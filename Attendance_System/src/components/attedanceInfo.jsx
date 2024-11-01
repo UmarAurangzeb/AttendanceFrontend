@@ -1,13 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { getGroupData,updateGroupData } from "../api/api";
-// import '../Styles/introStyles.css';
 import '../Styles/attendance.css'
-import myImg from '../img/dd.png';
+import myImg from '../img/logo.png';
 import DeveloperDay from "./toolTip";
 import { useNavigate } from "react-router-dom";
 
 function AttendanceForm() {
-  const [showTooltip, setShowTooltip] = useState(false);
   const [submission,setSubmission] = useState(false)
   const [formData, setFormData] = useState([]);
   const [inputCode, setInputCode] = useState('');
@@ -17,6 +15,9 @@ function AttendanceForm() {
     const response = await getGroupData();
     setFormData(response)
   }
+  useEffect(()=>{
+    document.title='Coder Cup- Mark Attendance'
+  },[])
 
   useEffect(() => {
     useFetch();
@@ -45,18 +46,18 @@ function AttendanceForm() {
   return (
     
     <div>
-      <div className="container">
+      <div className="AnotherContainer">
         <div className="box">
           <div className="haha">
             <img src={myImg} className="image" alt="Logo" />
-            <div className="heading">Mark Attendance</div>
+            <div className="heading1">Mark Attendance</div>
           </div>
           <form id="attendanceform" onSubmit={handleSubmit} method="post">
             <input
               id="code"
               className="form-control input-field"
               placeholder="Enter code here"
-              style={{ margin: '1vw' }}
+              style={{ margin: '1vw 0' }}
               name="code"
               value={inputCode}
               onChange={(event) => setInputCode(event.target.value)}

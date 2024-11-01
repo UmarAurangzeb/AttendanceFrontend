@@ -1,31 +1,59 @@
-.container {
-  width: 100%;
-  padding: 0 !important;
+.AnotherContainer {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px 50px 50px 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  margin: 5rem 0;
+  max-width: 25rem;
+  min-width: 12rem;
 }
 
-.heading {
+.image {
+  width: 19vw;
+  height: 39vh;
+}
+
+
+
+.heading1 {
+  color: rgb(171, 126, 12) !important;
   font-size: 2rem;
 }
 
 .submit-button {
-  width: 70%;
-  background-color: #00a0bf;
-  color: white;
-  height: 2.1rem;
+  width: 95%;
+  background-color: rgb(171, 126, 12);
+  color: rgb(171, 126, 12);
+  height: 2.3rem;
   font-size: 1rem;
   transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   border: none;
-  border-radius: 15px;
-  margin-bottom: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: rgb(171, 126, 12);
 }
 
 .submit-button:hover {
-  background-color: #003048;
+  background-color: white;
+  color: rgb(171, 126, 12);
+  font-weight: bold;
 }
 
 input {
-  width: 65%;
-  padding: 0.25rem;
+  width: 90%;
+  padding: 8px;
+
 }
 
 @media only screen and (max-width:600px) {
