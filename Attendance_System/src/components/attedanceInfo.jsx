@@ -1,50 +1,101 @@
 import { useEffect, useState, useRef } from "react";
-import { getGroupData,updateGroupData } from "../api/api";
+import { getGroupData, updateGroupData } from "../api/api";
 import '../Styles/attendance.css'
 import myImg from '../img/logo.png';
 import DeveloperDay from "./toolTip";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function AttendanceForm() {
-  const [submission,setSubmission] = useState(false)
+  const [submission, setSubmission] = useState(false)
   const [formData, setFormData] = useState([]);
   const [inputCode, setInputCode] = useState('');
   const navigate = useNavigate()
+  const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [error, setError] = useState(null);
 
-  async function useFetch() {
-    const response = await getGroupData();
-    setFormData(response)
-  }
-  useEffect(()=>{
-    document.title='Coders Cup- Mark Attendance'
-  },[])
+  // async function useFetch() {
+  //   const response = await getGroupData();
+  //   setFormData(response)
+  // }
+  useEffect(() => {
+    document.title = 'Coders Cup- Mark Attendance'
+  }, [])
+
+  // useEffect(() => {
+  //   useFetch();
+  // }, [submission]);
 
   useEffect(() => {
-    useFetch();
-  }, [submission]);
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLocation({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            });
+
+            setError(null);
+          },
+          (error) => {
+            setError(error.message);
+          }
+        );
+      } else {
+        setError("Geolocation is not supported by this browser.");
+      }
+    };
+    getLocation();
+  }, [])
 
   async function handleSubmit(event) {
-    let markAttendance = false;
     event.preventDefault();
-    setSubmission(!submission)
-    const array = formData.forEach((item)=>{
-      if(item.attendance_code===inputCode){
-        item.attendance = true
-        markAttendance=true
+    try {
+      if (error) {
+        alert("unable to fetch geolocation,please try again");
+        return;
       }
-    })
-    setFormData(array)
-    console.log(formData);
-    if(markAttendance){
-      await updateGroupData(formData)
-      navigate("/success")
-    }else{
-      alert('Invalid Code')
+
+      await axios.put('http://localhost:4000/MarkAttendance', {
+        code: inputCode,
+        latitude: location.latitude,
+        longitude: location.longitude
+      })
+        .then(response => {
+          console.log(response);
+          response.success && navigate("/success")
+        })
+        .catch(error => {
+          console.error(error);
+          alert("error marking attendance");
+        });
+    } catch (error) {
+      console.error(error);
     }
+
+
+
+    // let markAttendance = false;
+    // event.preventDefault();
+    // setSubmission(!submission)
+    // const array = formData.forEach((item)=>{
+    //   if(item.attendance_code===inputCode){
+    //     item.attendance = true
+    //     markAttendance=true
+    //   }
+    // })
+    // setFormData(array)
+    // console.log(formData);
+    // if(markAttendance){
+    //   await updateGroupData(formData)
+    //   navigate("/success")
+    // }else{
+    //   alert('Invalid Code')
+    // }
   }
 
   return (
-    
+
     <div>
       <div className="AnotherContainer">
         <div className="box">
@@ -70,7 +121,7 @@ function AttendanceForm() {
         </div>
       </div>
       <div>
-        <DeveloperDay/>
+        <DeveloperDay />
       </div>
     </div>
   );
