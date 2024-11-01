@@ -16,7 +16,7 @@ function AttendanceForm() {
     setFormData(response)
   }
   useEffect(()=>{
-    document.title='Coder Cup- Mark Attendance'
+    document.title='Coders Cup- Mark Attendance'
   },[])
 
   useEffect(() => {
