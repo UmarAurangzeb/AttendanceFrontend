@@ -4,7 +4,6 @@
   border-radius: 20px;
   padding: 25px 50px 50px 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  margin: 5rem 0;
   max-width: 25rem;
   min-width: 12rem;
 }
@@ -22,7 +21,7 @@
 }
 
 .submit-button {
-  width: 95%;
+  width: 99%;
   background-color: rgb(171, 126, 12);
   color: rgb(171, 126, 12);
   height: 2.3rem;
