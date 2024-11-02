@@ -55,7 +55,7 @@ function AttendanceForm() {
         return;
       }
 
-      await axios.put(`${FETCH_URL}/MarkAttendance`, {
+      await axios.put(`https://attendance-backend-roan.vercel.app/MarkAttendance`, {
         code: inputCode,
         latitude: location.latitude,
         longitude: location.longitude
