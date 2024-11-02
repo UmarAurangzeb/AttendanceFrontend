@@ -1,6 +1,6 @@
 import '../Styles/errorPage.css'
 import React from 'react';
-import DeveloperDay from './toolTip';
+import DeveloperDay from './tooltip';
 
 function NotFoundPage() {
   return (

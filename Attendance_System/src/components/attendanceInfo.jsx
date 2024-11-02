@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { getGroupData, updateGroupData } from "../api/api";
 import '../Styles/attendance.css'
 import myImg from '../img/logo.png';
-import DeveloperDay from "./toolTip";
+import DeveloperDay from "./tooltip";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function AttendanceForm() {

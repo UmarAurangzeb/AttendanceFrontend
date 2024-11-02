@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../Styles/successStyles.css'
 import img from '../img/logo.png'
-import DeveloperDay from './toolTip';
+import DeveloperDay from './tooltip';
 
 function SuccessMessage({ teamName, msg }) {
   useEffect(() => {
