@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { getGroupData, updateGroupData } from "../api/api";
-import '../Styles/attendance.css'
+import '../Styles/base.css'
+import '../Styles/introStyles.css'
 import myImg from '../img/logo.png';
 import DeveloperDay from "./tooltip";
 import { useNavigate } from "react-router-dom";
@@ -11,19 +12,14 @@ function AttendanceForm() {
   const [inputCode, setInputCode] = useState('');
   const navigate = useNavigate()
   const [location, setLocation] = useState({ latitude: null, longitude: null });
-  const FETCH_URL = process.env.FETCH_URL || `http://localhost:4000`;
+  // const FETCH_URL=process.env.FETCH_URL ||  ;
 
-  // async function useFetch() {
-  //   const response = await getGroupData();
-  //   setFormData(response)
-  // }
+
   useEffect(() => {
     document.title = 'Coders Cup- Mark Attendance'
   }, [])
 
-  // useEffect(() => {
-  //   useFetch();
-  // }, [submission]);
+
 
   useEffect(() => {
     const getLocation = () => {
@@ -55,7 +51,7 @@ function AttendanceForm() {
         return;
       }
 
-      await axios.put(`https://attendance-backend-roan.vercel.app/MarkAttendance`, {
+      await axios.put('https://attendance-backend-roan.vercel.app/MarkAttendance', {
         code: inputCode,
         latitude: location.latitude,
         longitude: location.longitude
@@ -94,29 +90,30 @@ function AttendanceForm() {
   }
 
   return (
-
     <div>
-      <div className="AnotherContainer">
+      <div className="container">
         <div className="box">
           <div className="haha">
-            <img src={myImg} className="image" alt="Logo" />
-            <div className="heading1">Mark Attendance</div>
+            <img src={myImg} alt="Logo" />
+            <div className="heading h3 mt-3">Mark Attendance</div>
           </div>
-          <form id="attendanceform" onSubmit={handleSubmit} method="post">
-            <input
-              id="code"
-              className="form-control input-field"
-              placeholder="Enter code here"
-              style={{ margin: '1vw 0' }}
-              name="code"
-              value={inputCode}
-              onChange={(event) => setInputCode(event.target.value)}
-              required
-              maxLength={9}
-            />
-            <br />
-            <button className="submit-button btn">Submit</button>
-          </form>
+          <div className="d-flex justify-content-center align-items-center flex-column" style={{ marginTop: '1.3rem' }}>
+            <form id="attendanceform" onSubmit={handleSubmit} method="post">
+              <input
+                id="code"
+                className="form-control input-field"
+                placeholder="Enter code here"
+                style={{ margin: '1vw 0' }}
+                name="code"
+                value={inputCode}
+                onChange={(event) => setInputCode(event.target.value)}
+                required
+                maxLength={9}
+              />
+              <br />
+              <button id="submitBtn" type="submit" className="submit-button btn">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
       <div>

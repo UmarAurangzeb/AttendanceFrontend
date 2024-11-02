@@ -29,14 +29,14 @@ img:hover {
 }
 
 .box {
-  /* background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 25px 50px 50px 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   margin: 5rem 0;
   max-width: 25rem;
-  min-width: 12rem; */
+  min-width: 12rem;
 }
 
 .heading {

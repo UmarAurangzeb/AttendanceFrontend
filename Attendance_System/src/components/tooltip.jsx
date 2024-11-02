@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../Styles/base.css';
+// import '../Styles/base.css';
 
 const DeveloperDay = () => {
   const [boxShown, setBoxShown] = useState(false);
@@ -9,33 +9,24 @@ const DeveloperDay = () => {
       setBoxShown((prev) => {
         const newBoxShown = !prev;
         document.querySelector('.infobox').style.display = newBoxShown ? 'block' : 'none';
-        document.querySelector('.infotooltip').style.display = newBoxShown ? 'none' : 'block';
         return newBoxShown;
       });
     };
 
-    const handleInfoButtonHover = (show) => {
-      if (window.innerWidth > 768) {
-        document.querySelector('.infotooltip').style.display = show ? 'block' : 'none';
-      }
-    };
 
     const infoButton = document.querySelector('.infobutton');
     infoButton.addEventListener('click', handleInfoButtonClick);
-    infoButton.addEventListener('mouseenter', () => handleInfoButtonHover(true));
-    infoButton.addEventListener('mouseleave', () => handleInfoButtonHover(false));
 
     return () => {
       infoButton.removeEventListener('click', handleInfoButtonClick);
-      infoButton.removeEventListener('mouseenter', () => handleInfoButtonHover(true));
-      infoButton.removeEventListener('mouseleave', () => handleInfoButtonHover(false));
+
     };
   }, [boxShown]);
 
   return (
     <div>
-      <div className="dum">
-        <span className="infotooltip">Instructions</span>
+      <div className="dum  group">
+        <span className={`infotooltip p-2 m-2 hidden ${!boxShown && 'group-hover:block'} `}>Instructions</span>
         <div className="infobox">
           <p>Attendance marking</p>
           <ol className="infolist">
