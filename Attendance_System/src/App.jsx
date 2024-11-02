@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import AttendanceForm from './components/attendanceInfo'
-import SuccessMessage from './components/success'
-import NotFoundPage from './components/No_Found'
+import AttendanceForm from './components/attendanceInfo.jsx'
+import SuccessMessage from './components/success.jsx'
+import NotFoundPage from './components/No_Found.jsx'
 function App() {
   return (
     <Routes>
