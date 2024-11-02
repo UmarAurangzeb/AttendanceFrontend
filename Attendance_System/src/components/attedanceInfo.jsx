@@ -11,8 +11,6 @@ function AttendanceForm() {
   const [inputCode, setInputCode] = useState('');
   const navigate = useNavigate()
   const [location, setLocation] = useState({ latitude: null, longitude: null });
-  const [error, setError] = useState(null);
-
   // async function useFetch() {
   //   const response = await getGroupData();
   //   setFormData(response)
@@ -35,14 +33,13 @@ function AttendanceForm() {
               longitude: position.coords.longitude,
             });
 
-            setError(null);
           },
           (error) => {
-            setError(error.message);
+            console.log("error setting geolocation", error)
           }
         );
       } else {
-        setError("Geolocation is not supported by this browser.");
+        console.log("geolocation not supported");
       }
     };
     getLocation();
@@ -51,8 +48,8 @@ function AttendanceForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      if (error) {
-        alert("unable to fetch geolocation,please try again");
+      if (!location.latitude || !location.longitude) {
+        alert("enable geolocation and try again");
         return;
       }
 
@@ -63,11 +60,11 @@ function AttendanceForm() {
       })
         .then(response => {
           console.log(response);
-          response.success && navigate("/success")
+          response.data.success && navigate("/success")
         })
         .catch(error => {
-          console.error(error);
-          alert("error marking attendance");
+          console.error(error.response);
+          alert(error.response.data.message);
         });
     } catch (error) {
       console.error(error);
