@@ -11,6 +11,8 @@ function AttendanceForm() {
   const [inputCode, setInputCode] = useState('');
   const navigate = useNavigate()
   const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const FETCH_URL = process.env.FETCH_URL || `http://localhost:4000`;
+
   // async function useFetch() {
   //   const response = await getGroupData();
   //   setFormData(response)
@@ -53,7 +55,7 @@ function AttendanceForm() {
         return;
       }
 
-      await axios.put('http://localhost:4000/MarkAttendance', {
+      await axios.put(`${FETCH_URL}/MarkAttendance`, {
         code: inputCode,
         latitude: location.latitude,
         longitude: location.longitude
