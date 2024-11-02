@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { getGroupData, updateGroupData } from "../api/api";
 import '../Styles/attendance.css'
 import myImg from '../img/logo.png';
