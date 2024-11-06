@@ -102,12 +102,11 @@ function AttendanceForm() {
             <div className="heading h3 mt-3 pb-0 mb-0">Mark Attendance</div>
           </div>
           <div className="d-flex justify-content-center align-items-center flex-column" style={{ marginTop: '1.3rem' }}>
-            <form id="attendanceform" onSubmit={handleSubmit} method="post">
+            <form id="attendanceform" onSubmit={handleSubmit} method="post" style={{ width: '100%' }}>
               <input
                 id="code"
                 className="form-control input-field"
                 placeholder="Enter code here"
-                style={{ margin: '1vw 0' }}
                 name="code"
                 value={inputCode}
                 onChange={(event) => setInputCode(event.target.value)}
@@ -115,7 +114,9 @@ function AttendanceForm() {
                 maxLength={9}
               />
               {isError.error && <div className="text-red-500 mt-1 text-center">{isError.errorMessage}</div>}
-              <button id="submitBtn" type="submit" className="submit-button btn btn hover:bg-black flex justify-center items-center mt-2">{loading ? <img src="/loader.svg" alt="Loading..." className="w-10 h-10 relative bottom-[6px]  inline"></img> : "Submit"}</button>
+              <button id="submitBtn" type="submit" className="submit-button btn btn hover:bg-black flex justify-center items-center">
+                {loading ? <img src="/loader.svg" alt="Loading..." className="w-10 h-10 relative bottom-[6px] inline"></img> : "Submit"}
+              </button>
             </form>
           </div>
         </div>
