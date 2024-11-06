@@ -51,7 +51,6 @@ function AttendanceForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      setloading(true);
       if (!location.latitude || !location.longitude) {
         seterror({
           error: true,
@@ -60,7 +59,7 @@ function AttendanceForm() {
         // alert("enable geolocation and try again");
         return;
       }
-
+      setloading(true);
       await axios.put('https://attendance-backend-roan.vercel.app/MarkAttendance', {
         code: inputCode,
         latitude: location.latitude,
