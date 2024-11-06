@@ -12,6 +12,11 @@ function AttendanceForm() {
   const [inputCode, setInputCode] = useState('');
   const navigate = useNavigate()
   const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [isError, seterror] = useState({
+    error: false,
+    errorMessage: ''
+  });
+  const [loading, setloading] = useState(false);
   // const FETCH_URL=process.env.FETCH_URL ||  ;
 
 
@@ -46,8 +51,13 @@ function AttendanceForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
+      setloading(true);
       if (!location.latitude || !location.longitude) {
-        alert("enable geolocation and try again");
+        seterror({
+          error: true,
+          errorMessage: "enable geolocation and try again"
+        })
+        // alert("enable geolocation and try again");
         return;
       }
 
@@ -62,32 +72,27 @@ function AttendanceForm() {
         })
         .catch(error => {
           console.error(error.response);
-          alert(error.response.data.message);
+          seterror({
+            error: true,
+            errorMessage: error.response.data.message,
+          });
+          // alert(error.response.data.message);
         });
     } catch (error) {
-      console.error(error);
+      seterror({
+        error: true,
+        errorMessage: "error marking attendance,please try again.",
+      });
     }
+    setloading(false);
+    setTimeout(() => {
+      seterror({
+        error: false,
+        errorMessage: "",
+      });
+    }, 5000); // Changes state after 5 seconds
+  };
 
-
-
-    // let markAttendance = false;
-    // event.preventDefault();
-    // setSubmission(!submission)
-    // const array = formData.forEach((item)=>{
-    //   if(item.attendance_code===inputCode){
-    //     item.attendance = true
-    //     markAttendance=true
-    //   }
-    // })
-    // setFormData(array)
-    // console.log(formData);
-    // if(markAttendance){
-    //   await updateGroupData(formData)
-    //   navigate("/success")
-    // }else{
-    //   alert('Invalid Code')
-    // }
-  }
 
   return (
     <div>
@@ -95,7 +100,7 @@ function AttendanceForm() {
         <div className="box">
           <div className="haha">
             <img src={myImg} alt="Logo" />
-            <div className="heading h3 mt-3">Mark Attendance</div>
+            <div className="heading h3 mt-3 pb-0 mb-0">Mark Attendance</div>
           </div>
           <div className="d-flex justify-content-center align-items-center flex-column" style={{ marginTop: '1.3rem' }}>
             <form id="attendanceform" onSubmit={handleSubmit} method="post">
@@ -110,8 +115,8 @@ function AttendanceForm() {
                 required
                 maxLength={9}
               />
-              <br />
-              <button id="submitBtn" type="submit" className="submit-button btn">Submit</button>
+              {isError.error && <div className="text-red-500  mt-1">{isError.errorMessage}</div>}
+              <button id="submitBtn" type="submit" className="submit-button btn btn hover:bg-black flex justify-center items-center mt-2">{loading ? <img src="/loader.svg" alt="Loading..." className="w-10 h-10 relative bottom-[6px]  inline"></img> : "Submit"}</button>
             </form>
           </div>
         </div>
@@ -122,5 +127,4 @@ function AttendanceForm() {
     </div>
   );
 }
-
 export default AttendanceForm;
