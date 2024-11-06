@@ -37,6 +37,7 @@ img:hover {
   margin: 5rem 0;
   max-width: 25rem;
   min-width: 12rem;
+  position: relative;
 }
 
 .heading {

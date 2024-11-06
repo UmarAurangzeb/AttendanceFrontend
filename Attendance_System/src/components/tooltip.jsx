@@ -28,12 +28,12 @@ const DeveloperDay = () => {
       <div className="dum  group">
         <span className={`infotooltip p-2 m-2 hidden ${!boxShown && 'group-hover:block'} `}>Instructions</span>
         <div className="infobox">
-          <p>Attendance marking</p>
-          <ol className="infolist">
+          <p>Mark Your Attendance</p>
+          <ul className="infolist">
             <li>Enable your device location</li>
             <li>Enter the code emailed to you</li>
             <li>In case of any error, ask for help</li>
-          </ol>
+          </ul>
         </div>
         <svg
           version="1.1"

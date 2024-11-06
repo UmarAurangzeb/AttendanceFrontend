@@ -21,7 +21,7 @@ function AttendanceForm() {
 
 
   useEffect(() => {
-    document.title = 'Coders Cup- Mark Attendance'
+    document.title = 'Coders Cup- Mark Your Attendance'
   }, [])
 
 
@@ -114,7 +114,7 @@ function AttendanceForm() {
                 required
                 maxLength={9}
               />
-              {isError.error && <div className="text-red-500  mt-1">{isError.errorMessage}</div>}
+              {isError.error && <div className="text-red-500 mt-1 text-center">{isError.errorMessage}</div>}
               <button id="submitBtn" type="submit" className="submit-button btn btn hover:bg-black flex justify-center items-center mt-2">{loading ? <img src="/loader.svg" alt="Loading..." className="w-10 h-10 relative bottom-[6px]  inline"></img> : "Submit"}</button>
             </form>
           </div>
