@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { getGroupData, updateGroupData } from "../api/api";
 import '../Styles/base.css'
 import '../Styles/introStyles.css'
-import myImg from '../img/logo.png';
+import myImg from '../img/logo2.png';
 import DeveloperDay from "./tooltip";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
