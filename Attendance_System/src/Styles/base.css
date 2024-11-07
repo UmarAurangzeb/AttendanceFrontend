@@ -197,10 +197,11 @@ body {
 .heading {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--secondary-color);
   text-align: center;
   margin: 1.5rem 0 2.5rem 0;
+  line-height: 3rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -273,6 +274,7 @@ body {
   
   .heading {
     font-size: 2rem;
+    line-height: 2.5rem;
   }
 }
 

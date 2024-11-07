@@ -4,9 +4,7 @@ import img from '../img/logo.png'
 import DeveloperDay from './tooltip';
 
 function SuccessMessage({ teamName, msg }) {
-  useEffect(() => {
-    document.title = "Coders Cup Attendance Confirmation"
-  })
+  
   return (
     <div>
       <div className="SuccessContainer">

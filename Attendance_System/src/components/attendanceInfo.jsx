@@ -21,12 +21,6 @@ function AttendanceForm() {
 
 
   useEffect(() => {
-    document.title = 'Coders Cup- Mark Your Attendance'
-  }, [])
-
-
-
-  useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -95,11 +89,11 @@ function AttendanceForm() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container w-[90vw]">
         <div className="box">
           <div className="haha">
-            <img src={myImg} alt="Logo" />
-            <div className="heading h3 mt-3 pb-0 mb-0">Mark Attendance</div>
+            <img className="" src={myImg} alt="Logo" />
+            <div className="heading mt-3 pb-0 mb-0">Mark Attendance</div>
           </div>
           <div className="d-flex justify-content-center align-items-center flex-column" style={{ marginTop: '1.3rem' }}>
             <form id="attendanceform" onSubmit={handleSubmit} method="post" style={{ width: '100%' }}>
